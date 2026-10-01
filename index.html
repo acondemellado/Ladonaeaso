@@ -506,6 +506,54 @@
     .gallery-grid video { cursor: default; }
     .gallery-grid video:hover { transform: none; filter: none; }
 
+    /* Ingredientes + información nutricional */
+    .info-donas {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .info-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 24px 28px;
+      color: rgba(255,248,240,.75);
+      font-size: .92rem;
+      line-height: 1.6;
+    }
+    .info-card h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--cream);
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+    .info-card strong { color: var(--cream); }
+    .info-card .nota { font-size: .82rem; color: rgba(255,248,240,.55); margin-top: 14px; }
+    .ingredientes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+    .ingredientes span {
+      background: rgba(212,168,67,.14);
+      border: 1px solid rgba(212,168,67,.35);
+      color: var(--cream);
+      font-size: .8rem;
+      padding: 4px 12px;
+      border-radius: 100px;
+    }
+    .tabla-wrap { overflow-x: auto; margin-top: 12px; }
+    .tabla-nutri { width: 100%; border-collapse: collapse; font-size: .88rem; }
+    .tabla-nutri th, .tabla-nutri td { padding: 9px 8px; text-align: right; white-space: nowrap; }
+    .tabla-nutri th:first-child, .tabla-nutri td:first-child { text-align: left; }
+    .tabla-nutri th {
+      color: var(--gold); font-weight: 600; font-size: .75rem;
+      text-transform: uppercase; letter-spacing: .04em;
+      border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+    .tabla-nutri td { color: var(--cream); border-bottom: 1px solid rgba(255,255,255,.07); }
+    .tabla-nutri td:first-child { font-weight: 600; }
+    .tabla-nutri td:last-child { color: var(--gold); font-weight: 600; }
+    @media (max-width: 860px) { .info-donas { grid-template-columns: 1fr; } }
+    @media (max-width: 480px) { .info-card { padding: 20px 16px; } }
+
     /* Eventos especiales + vídeo */
     .eventos-row {
       margin-top: 32px;
@@ -841,7 +889,7 @@
       <a href="#inicio" class="nav-logo">🍩 La Dona <span>Easo</span></a>
       <ul class="nav-links">
         <li><a href="#nosotros">Nosotras</a></li>
-        <li><a href="#productos">Productos</a></li>
+        <li><a href="#productos">Tus Donas</a></li>
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#formaciones">Formaciones</a></li>
         <li><a href="#profesionales">Profesionales</a></li>
@@ -856,7 +904,7 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#nosotros" onclick="closeMobile()">Nosotras</a>
-  <a href="#productos" onclick="closeMobile()">Productos</a>
+  <a href="#productos" onclick="closeMobile()">Tus Donas</a>
   <a href="#galeria" onclick="closeMobile()">Galería</a>
   <a href="#formaciones" onclick="closeMobile()">Formaciones</a>
   <a href="#profesionales" onclick="closeMobile()">Profesionales</a>
@@ -879,7 +927,7 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
         Pedir ahora
       </a>
-      <a href="#productos" class="btn-secondary">Ver productos</a>
+      <a href="#productos" class="btn-secondary">Ver las donas</a>
     </div>
     <div class="hero-pills">
       <span class="pill">Sin gluten*</span>
@@ -952,7 +1000,7 @@
     <div class="products-intro">
       <div>
         <div class="section-label">Lo que hacemos</div>
-        <h2 class="section-title">Nuestros productos</h2>
+        <h2 class="section-title">Tus Donas</h2>
         <div class="divider"></div>
       </div>
       <a href="#pedidos" class="btn-primary" style="flex-shrink:0">Hacer mi pedido</a>
@@ -1001,6 +1049,45 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- Ingredientes e información nutricional -->
+    <div class="info-donas">
+      <div class="info-card fade-up">
+        <h3>🥕 Ingredientes</h3>
+        <p>Nuestras donas están elaboradas con <strong>comida real</strong>. Según la variedad, encontrarás:</p>
+        <div class="ingredientes">
+          <span>Boniato</span>
+          <span>Calabaza</span>
+          <span>Zanahoria</span>
+          <span>Huevo</span>
+          <span>Aceite de coco</span>
+          <span>Aceite de oliva virgen extra</span>
+          <span>Dátiles</span>
+          <span>Chocolate +75%</span>
+          <span>Cacao puro</span>
+          <span>Frutos secos</span>
+          <span>Levadura química</span>
+        </div>
+        <p class="nota">En las versiones de <strong>tiramisú</strong>: proteína de vainilla sin edulcorantes ni azúcares añadidos, queso mascarpone y café recién hecho con grano natural molido durante la elaboración.</p>
+      </div>
+      <div class="info-card fade-up">
+        <h3>📊 Información nutricional</h3>
+        <p>Valores aproximados por unidad.</p>
+        <div class="tabla-wrap">
+          <table class="tabla-nutri">
+            <thead>
+              <tr><th>Dona</th><th>Peso</th><th>Proteínas</th><th>Grasas</th><th>HC</th><th>Kcal</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Classic</td><td>~55 g</td><td>3 g</td><td>9 g</td><td>14 g</td><td>148</td></tr>
+              <tr><td>Pistacho</td><td>~60 g</td><td>4 g</td><td>11 g</td><td>15 g</td><td>178</td></tr>
+              <tr><td>Tiramisú</td><td>~88 g</td><td>9 g</td><td>17 g</td><td>14 g</td><td>242</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="nota">Nuestras donas son artesanas, así que el peso y estas proporciones pueden variar ligeramente de una unidad a otra.</p>
+      </div>
     </div>
 
     <!-- Eventos especiales -->
@@ -1244,7 +1331,7 @@
         </div>
       </div>
       <div class="footer-col">
-        <h4>Productos</h4>
+        <h4>Tus Donas</h4>
         <ul>
           <li><a href="#productos">Donas classic</a></li>
           <li><a href="#productos">Donas variedades</a></li>
