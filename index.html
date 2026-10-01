@@ -550,6 +550,11 @@
     }
     .tabla-nutri td { color: var(--cream); border-bottom: 1px solid rgba(255,255,255,.07); }
     .tabla-nutri td:first-child { font-weight: 600; }
+    .tag-fav {
+      display: inline-block; margin-left: 6px; font-size: .68rem; font-weight: 500;
+      color: var(--gold); background: rgba(212,168,67,.14);
+      border: 1px solid rgba(212,168,67,.35); border-radius: 100px; padding: 1px 8px;
+    }
     .tabla-nutri td:last-child { color: var(--gold); font-weight: 600; }
     @media (max-width: 860px) { .info-donas { grid-template-columns: 1fr; } }
     @media (max-width: 480px) { .info-card { padding: 20px 16px; } }
@@ -1027,7 +1032,7 @@
         </div>
         <div class="product-body">
           <h3>Caja 8 donas variedades</h3>
-          <p>Sabores infinitos y sorprendentes: pistacho, almendra, coco… Cada caja es una sorpresa.</p>
+          <p>Sabores infinitos y sorprendentes: pistacho (¡la más pedida!), almendra, coco… Cada caja es una sorpresa.</p>
           <div class="product-footer">
             <div class="price">25 €<span>caja de 8 · entrega en Donostialdea</span></div>
             <a href="https://wa.me/34669436701?text=Hola!%20Quiero%20pedir%20una%20caja%20de%208%20donas%20variedades%20%2825%E2%82%AC%29" target="_blank" class="card-cta">Pedir →</a>
@@ -1081,7 +1086,7 @@
             </thead>
             <tbody>
               <tr><td>Classic</td><td>~55 g</td><td>3 g</td><td>9 g</td><td>14 g</td><td>148</td></tr>
-              <tr><td>Pistacho</td><td>~60 g</td><td>4 g</td><td>11 g</td><td>15 g</td><td>178</td></tr>
+              <tr><td>Pistacho <span class="tag-fav">⭐ la más pedida</span></td><td>~60 g</td><td>4 g</td><td>11 g</td><td>15 g</td><td>178</td></tr>
               <tr><td>Tiramisú</td><td>~88 g</td><td>9 g</td><td>17 g</td><td>14 g</td><td>242</td></tr>
             </tbody>
           </table>
