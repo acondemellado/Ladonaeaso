@@ -645,6 +645,24 @@
       margin-top: 8px;
     }
     .btn-submit:hover { background: var(--caramel); transform: translateY(-1px); }
+    .form-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .form-buttons .btn-submit { font-size: .92rem; padding: 14px 10px; }
+    .btn-submit.secondary {
+      background: transparent;
+      color: var(--chocolate);
+      border: 1.5px solid var(--chocolate);
+    }
+    .btn-submit.secondary:hover { background: var(--chocolate); color: var(--cream); }
+    .form-ok {
+      background: #EEF6E9;
+      border: 1px solid #B9D8A6;
+      color: #2F5A1E;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: .9rem;
+      margin-bottom: 18px;
+    }
+    @media (max-width: 420px) { .form-buttons { grid-template-columns: 1fr; } }
     .form-note {
       font-size: .8rem;
       color: var(--text-light);
@@ -674,6 +692,37 @@
       margin: 0 auto 36px;
       line-height: 1.7;
     }
+
+    /* ── PROFESIONALES ─────────────────────────────────── */
+    .profesionales {
+      padding: 90px 0;
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+    .pro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .pro-list { list-style: none; margin-top: 28px; display: grid; gap: 14px; }
+    .pro-list li {
+      display: flex; gap: 12px; align-items: flex-start;
+      font-size: .95rem; color: var(--text-light); line-height: 1.55;
+    }
+    .pro-list li span:first-child {
+      flex-shrink: 0; width: 34px; height: 34px; border-radius: 10px;
+      background: white; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .pro-list strong { color: var(--chocolate); }
+    .profesionales .contact-form { padding: 32px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 860px) {
+      .pro-grid { grid-template-columns: 1fr; gap: 40px; }
+      .profesionales .contact-form { padding: 28px 20px; }
+    }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; gap: 0; } }
 
     /* ── FOOTER ────────────────────────────────────────── */
     footer {
@@ -795,6 +844,7 @@
         <li><a href="#productos">Productos</a></li>
         <li><a href="#galeria">Galería</a></li>
         <li><a href="#formaciones">Formaciones</a></li>
+        <li><a href="#profesionales">Profesionales</a></li>
         <li><a href="#pedidos" class="nav-cta">Hacer pedido</a></li>
       </ul>
       <button class="hamburger" id="hamburger" aria-label="Menú">
@@ -809,6 +859,7 @@
   <a href="#productos" onclick="closeMobile()">Productos</a>
   <a href="#galeria" onclick="closeMobile()">Galería</a>
   <a href="#formaciones" onclick="closeMobile()">Formaciones</a>
+  <a href="#profesionales" onclick="closeMobile()">Profesionales</a>
   <a href="#pedidos" onclick="closeMobile()" class="btn-primary" style="border-radius:100px;padding:12px 24px;">Hacer pedido</a>
 </div>
 
@@ -848,9 +899,9 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-images fade-up">
-        <img src="images/IMG_8118.jpg" alt="Donas de chocolate artesanas">
+        <img src="images/donas-chocolate-caja.jpg" alt="Donas de chocolate negro artesanas">
         <img src="images/IMG_9959.jpg" alt="Donuts saludables La Dona Easo">
-        <img src="images/IMG_8119.jpg" alt="Repostería artesana Donostia">
+        <img src="images/donas-variadas-caja.jpg" alt="Caja de donas variadas con coco, chocolate blanco y almendra">
       </div>
       <div class="about-content fade-up">
         <div class="section-label">Nuestra historia</div>
@@ -1006,6 +1057,81 @@
   </div>
 </section>
 
+<!-- ░░ PROFESIONALES ░░ -->
+<section class="profesionales" id="profesionales">
+  <div class="container">
+    <div class="pro-grid">
+      <div class="fade-up">
+        <div class="section-label">Para profesionales</div>
+        <h2 class="section-title">¿Quieres nuestras donas en tu negocio?</h2>
+        <div class="divider"></div>
+        <p class="section-text">
+          Cafeterías, restaurantes, tiendas y hoteles de Donostialdea: ofrecemos nuestras donas para que
+          tus clientes disfruten de un dulce artesano, natural y sin azúcar añadido.
+          Cuéntanos qué necesitas y te preparamos una propuesta a tu medida.
+        </p>
+        <ul class="pro-list">
+          <li><span>🧑‍🍳</span><span><strong>Elaboración artesana bajo pedido</strong>, siempre fresca.</span></li>
+          <li><span>📦</span><span><strong>Formatos y cantidades</strong> adaptados a tu negocio.</span></li>
+          <li><span>🌾</span><span><strong>Sin gluten* y sin azúcar añadido</strong>: una opción diferente para tu carta o tu lineal.</span></li>
+        </ul>
+      </div>
+      <div class="fade-up">
+        <div class="contact-form">
+          <h3>Hablemos</h3>
+          <p>Déjanos tus datos y te contactamos para conocer tu negocio.</p>
+          <form id="proForm" class="dual-form" action="https://formsubmit.co/gu@ladonaeaso.com" method="POST" data-ok="pro" data-wa-intro="¡Hola! Tengo un negocio y me interesa ofrecer vuestras donas 🍩">
+            <input type="hidden" name="_subject" value="Profesionales: solicitud de información – La Dona Easo">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="form-ok" hidden>✅ ¡Gracias! Te contactamos en breve.</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pro-negocio">Nombre del negocio</label>
+                <input type="text" id="pro-negocio" name="negocio" required>
+              </div>
+              <div class="form-group">
+                <label for="pro-tipo">Tipo de negocio</label>
+                <select id="pro-tipo" name="tipo" required>
+                  <option value="" disabled selected>Elige uno</option>
+                  <option>Cafetería / restaurante</option>
+                  <option>Tienda / ultramarinos</option>
+                  <option>Hotel / alojamiento</option>
+                  <option>Catering / eventos</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="pro-nombre">Persona de contacto</label>
+                <input type="text" id="pro-nombre" name="contacto" required>
+              </div>
+              <div class="form-group">
+                <label for="pro-tel">Teléfono</label>
+                <input type="tel" id="pro-tel" name="telefono" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pro-email">Email</label>
+              <input type="email" id="pro-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="pro-msg">¿Qué te gustaría?</label>
+              <textarea id="pro-msg" name="mensaje" placeholder="Localidad, cantidades aproximadas, frecuencia..." style="min-height:90px"></textarea>
+            </div>
+            <div class="form-buttons">
+              <button type="submit" class="btn-submit" data-via="email">Enviar por email ✉️</button>
+              <button type="submit" class="btn-submit secondary" data-via="whatsapp">Por WhatsApp 💬</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ░░ PEDIDOS ░░ -->
 <section class="pedidos" id="pedidos">
   <div class="container">
@@ -1055,7 +1181,12 @@
         <div class="contact-form">
           <h3>Cuéntanos tu pedido</h3>
           <p>Te respondemos en menos de 24h para confirmar disponibilidad y entrega.</p>
-          <form id="pedidoForm">
+          <form id="pedidoForm" class="dual-form" action="https://formsubmit.co/gu@ladonaeaso.com" method="POST" data-ok="pedido" data-wa-intro="¡Hola! Quiero hacer un pedido en La Dona Easo 🍩">
+            <input type="hidden" name="_subject" value="Nuevo pedido desde la web – La Dona Easo">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="form-ok" hidden>✅ ¡Pedido recibido! Te respondemos en menos de 24h.</div>
             <div class="form-group">
               <label for="nombre">Tu nombre</label>
               <input type="text" id="nombre" name="nombre" placeholder="Ana García" required>
@@ -1083,8 +1214,11 @@
               <label for="mensaje">Mensaje o indicaciones</label>
               <textarea id="mensaje" name="mensaje" placeholder="Zona de entrega, fecha aproximada, algún detalle especial..."></textarea>
             </div>
-            <button type="submit" class="btn-submit">Enviar pedido por WhatsApp 🍩</button>
-            <p class="form-note">Al enviar se abrirá WhatsApp con tu pedido ya escrito; solo tienes que darle a enviar. También puedes escribirnos al 669 436 701.</p>
+            <div class="form-buttons">
+              <button type="submit" class="btn-submit" data-via="whatsapp">Enviar por WhatsApp 💬</button>
+              <button type="submit" class="btn-submit secondary" data-via="email">Enviar por email ✉️</button>
+            </div>
+            <p class="form-note">Por WhatsApp se abrirá el chat con tu pedido ya escrito; solo tienes que darle a enviar. Por email nos llega directamente a gu@ladonaeaso.com.</p>
           </form>
         </div>
       </div>
@@ -1117,6 +1251,7 @@
           <li><a href="#productos">Donas tiramisú</a></li>
           <li><a href="#formaciones">Talleres</a></li>
           <li><a href="#pedidos">Eventos especiales</a></li>
+          <li><a href="#profesionales">Para tiendas y restaurantes</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -1173,19 +1308,23 @@
   }, { threshold: 0.12 });
   fadeEls.forEach(el => observer.observe(el));
 
-  // Formulario de pedido → abre WhatsApp con el mensaje ya redactado
-  document.getElementById('pedidoForm').addEventListener('submit', (e) => {
-    e.preventDefault();
-    const f = e.target;
-    const val = (name) => f.elements[name].value.trim();
-    const sel = f.elements.producto;
-    const lineas = ['¡Hola! Quiero hacer un pedido en La Dona Easo 🍩', ''];
-    lineas.push('Nombre: ' + val('nombre'));
-    lineas.push('Teléfono: ' + val('telefono'));
-    if (val('email')) lineas.push('Email: ' + val('email'));
-    lineas.push('Producto: ' + sel.options[sel.selectedIndex].text);
-    if (val('mensaje')) lineas.push('Indicaciones: ' + val('mensaje'));
-    window.open('https://wa.me/34669436701?text=' + encodeURIComponent(lineas.join('\n')), '_blank');
+  // Formularios: envío por WhatsApp (mensaje ya redactado) o por email (FormSubmit)
+  const enviado = new URLSearchParams(location.search).get('enviado');
+  document.querySelectorAll('.dual-form').forEach((f) => {
+    f.elements._next.value = location.origin + location.pathname + '?enviado=' + f.dataset.ok + '#' + f.closest('section').id;
+    if (enviado === f.dataset.ok) f.querySelector('.form-ok').hidden = false;
+    f.addEventListener('submit', (e) => {
+      if (!e.submitter || e.submitter.dataset.via !== 'whatsapp') return; // email: envío normal
+      e.preventDefault();
+      const lineas = [f.dataset.waIntro, ''];
+      [...f.elements].forEach((el) => {
+        if (!el.name || el.name.startsWith('_') || !el.value.trim()) return;
+        const label = f.querySelector('label[for="' + el.id + '"]');
+        const valor = el.tagName === 'SELECT' ? el.options[el.selectedIndex].text : el.value.trim();
+        lineas.push((label ? label.textContent : el.name) + ': ' + valor);
+      });
+      window.open('https://wa.me/34669436701?text=' + encodeURIComponent(lineas.join('\n')), '_blank');
+    });
   });
 </script>
 
