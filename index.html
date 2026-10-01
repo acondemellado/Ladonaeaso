@@ -487,7 +487,7 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: 220px 220px;
+      grid-auto-rows: 220px;
       gap: 12px;
       margin-top: 48px;
     }
@@ -501,13 +501,14 @@
     }
     .gallery-grid img:hover { transform: scale(1.03); filter: brightness(1.05); }
     .gallery-grid .span-2 { grid-column: span 2; grid-row: span 2; border-radius: 20px; }
+    .gallery-grid .wide { grid-column: span 2; }
 
     @media (max-width: 720px) {
       .gallery-grid {
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
+        grid-auto-rows: 160px;
       }
-      .gallery-grid .span-2 { grid-column: span 2; grid-row: span 1; height: 200px; }
+      .gallery-grid .span-2 { grid-column: span 2; grid-row: span 2; }
     }
 
     /* ── PEDIDOS ───────────────────────────────────────── */
@@ -914,14 +915,14 @@
 
       <div class="product-card fade-up">
         <div class="product-img">
-          <img src="images/tiramisu.jpg" alt="Berlinas tiramisú">
+          <img src="images/tiramisu.jpg" alt="Donas tiramisú">
         </div>
         <div class="product-body">
-          <h3>Caja 8 berlinas tiramisú</h3>
+          <h3>Caja 8 donas tiramisú</h3>
           <p>Rellenas con nuestra crema casera de tiramisú, cargada de nutrientes y sabor auténtico.</p>
           <div class="product-footer">
             <div class="price">30 €<span>caja de 8 · entrega en Donostialdea</span></div>
-            <a href="https://wa.me/34669436701?text=Hola!%20Quiero%20pedir%20una%20caja%20de%208%20berlinas%20tiramis%C3%BA%20%2830%E2%82%AC%29" target="_blank" class="card-cta">Pedir →</a>
+            <a href="https://wa.me/34669436701?text=Hola!%20Quiero%20pedir%20una%20caja%20de%208%20donas%20tiramis%C3%BA%20%2830%E2%82%AC%29" target="_blank" class="card-cta">Pedir →</a>
           </div>
         </div>
       </div>
@@ -948,13 +949,13 @@
     <h2 class="section-title">Tan bonitas como ricas</h2>
     <div class="divider"></div>
     <div class="gallery-grid fade-up">
-      <img src="images/IMG_8287.jpg" alt="Donas de chocolate con pistacho" class="span-2">
-      <img src="images/IMG_8118.jpg" alt="Donas de chocolate oscuro">
-      <img src="images/IMG_8119.jpg" alt="Donas artesanas Donostia">
-      <img src="images/IMG_8096.jpg" alt="Dona de chocolate fantasmagórica">
-      <img src="images/IMG_8287.jpg" alt="Donas variadas">
-      <img src="images/IMG_9959.jpg" alt="Donas especiales">
-      <img src="images/tiramisu.jpg" alt="Berlina rellena">
+      <img src="images/dona-corte.jpg" alt="Interior esponjoso de una dona de chocolate" class="span-2" loading="lazy">
+      <img src="images/dona-chocolate.jpg" alt="Dona de chocolate negro con hilos de chocolate" loading="lazy">
+      <img src="images/donas-plato.jpg" alt="Donas de chocolate negro y blanco en un plato" loading="lazy">
+      <img src="images/mix.jpg" alt="Donas de chocolate con pistacho" loading="lazy">
+      <img src="images/IMG_8096.jpg" alt="Dona de chocolate blanco con tela de araña" loading="lazy">
+      <img src="images/cajas-donas.jpg" alt="Cajas de donas recién cubiertas de chocolate" class="wide" loading="lazy">
+      <img src="images/IMG_9953.jpg" alt="Cajas de donas recién horneadas" class="wide" loading="lazy" style="object-position:center 70%">
     </div>
   </div>
 </section>
@@ -1026,7 +1027,7 @@
         <div class="contact-form">
           <h3>Cuéntanos tu pedido</h3>
           <p>Te respondemos en menos de 24h para confirmar disponibilidad y entrega.</p>
-          <form action="https://formspree.io/f/gu@ladonaeaso.com" method="POST">
+          <form id="pedidoForm">
             <div class="form-group">
               <label for="nombre">Tu nombre</label>
               <input type="text" id="nombre" name="nombre" placeholder="Ana García" required>
@@ -1045,7 +1046,7 @@
                 <option value="" disabled selected>¿Qué te apetece?</option>
                 <option value="donas-classic">Caja 8 donas classic – 22€</option>
                 <option value="donas-variedades">Caja 8 donas variedades – 25€</option>
-                <option value="berlinas-tiramisu">Caja 8 berlinas tiramisú – 30€</option>
+                <option value="donas-tiramisu">Caja 8 donas tiramisú – 30€</option>
                 <option value="evento-especial">Evento especial (consultar)</option>
                 <option value="formacion">Taller de repostería</option>
               </select>
@@ -1054,8 +1055,8 @@
               <label for="mensaje">Mensaje o indicaciones</label>
               <textarea id="mensaje" name="mensaje" placeholder="Zona de entrega, fecha aproximada, algún detalle especial..."></textarea>
             </div>
-            <button type="submit" class="btn-submit">Enviar pedido 🍩</button>
-            <p class="form-note">También puedes escribirnos directamente por WhatsApp al 669 436 701</p>
+            <button type="submit" class="btn-submit">Enviar pedido por WhatsApp 🍩</button>
+            <p class="form-note">Al enviar se abrirá WhatsApp con tu pedido ya escrito; solo tienes que darle a enviar. También puedes escribirnos al 669 436 701.</p>
           </form>
         </div>
       </div>
@@ -1085,7 +1086,7 @@
         <ul>
           <li><a href="#productos">Donas classic</a></li>
           <li><a href="#productos">Donas variedades</a></li>
-          <li><a href="#productos">Berlinas tiramisú</a></li>
+          <li><a href="#productos">Donas tiramisú</a></li>
           <li><a href="#formaciones">Talleres</a></li>
           <li><a href="#pedidos">Eventos especiales</a></li>
         </ul>
@@ -1143,6 +1144,21 @@
     });
   }, { threshold: 0.12 });
   fadeEls.forEach(el => observer.observe(el));
+
+  // Formulario de pedido → abre WhatsApp con el mensaje ya redactado
+  document.getElementById('pedidoForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const f = e.target;
+    const val = (name) => f.elements[name].value.trim();
+    const sel = f.elements.producto;
+    const lineas = ['¡Hola! Quiero hacer un pedido en La Dona Easo 🍩', ''];
+    lineas.push('Nombre: ' + val('nombre'));
+    lineas.push('Teléfono: ' + val('telefono'));
+    if (val('email')) lineas.push('Email: ' + val('email'));
+    lineas.push('Producto: ' + sel.options[sel.selectedIndex].text);
+    if (val('mensaje')) lineas.push('Indicaciones: ' + val('mensaje'));
+    window.open('https://wa.me/34669436701?text=' + encodeURIComponent(lineas.join('\n')), '_blank');
+  });
 </script>
 
 </body>
